@@ -114,10 +114,10 @@ import { MessageCenterComponent } from './components/vendor/messageCenter/messag
         NoticeService,
         TableService
     ],
-    entryComponents: [
-        SharedStopPointsEditComponent,
-        SharedStopPointsNewComponent
-    ]
+    // entryComponents: [
+    //     SharedStopPointsEditComponent,
+    //     SharedStopPointsNewComponent
+    // ]
 })
 
 export class SharedModule { }

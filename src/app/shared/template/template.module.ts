@@ -41,10 +41,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
         PrivacyComponent,
         PageNotFoundComponent
     ],
-    entryComponents: [
-        TermsComponent,
-        PrivacyComponent
-    ],
+    // entryComponents: [
+    //     TermsComponent,
+    //     PrivacyComponent
+    // ],
     providers: [
         ThemeConstantService
     ]
