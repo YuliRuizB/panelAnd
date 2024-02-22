@@ -33,7 +33,7 @@ export const months = {
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-  @ViewChild('searchBar', { static: false }) searchbar;
+  @ViewChild('searchBar') searchbar;
 
   search: any;
 
