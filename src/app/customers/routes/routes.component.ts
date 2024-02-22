@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { IRoute } from 'src/app/shared/interfaces/route.type';
 import { AccountsService } from 'src/app/shared/services/accounts.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 
 @Component({
@@ -23,7 +23,7 @@ export class RoutesComponent implements OnInit, OnDestroy {
   stopSubscription$: Subject<boolean> = new Subject();
   routesList: any = [];
   accountsList: any = [];
-  objectForm: FormGroup;
+  objectForm: UntypedFormGroup;
 
   confirmModal: NzModalRef;
   duplicateVisible: boolean = false;
@@ -37,7 +37,7 @@ export class RoutesComponent implements OnInit, OnDestroy {
     private routesService: RoutesService,
     private authService: AuthenticationService,
     private accountsService: AccountsService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private modal: NzModalService
   ) { }
 

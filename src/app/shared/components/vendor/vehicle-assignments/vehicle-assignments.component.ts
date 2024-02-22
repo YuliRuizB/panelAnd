@@ -5,7 +5,7 @@ import { takeUntil, map } from 'rxjs/operators';
 import { VehiclesService } from 'src/app/shared/services/vehicles.service';
 import { DriversService } from 'src/app/shared/services/drivers.service';
 import { ProgramService } from 'src/app/shared/services/program.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import * as _ from 'lodash';
 
 @Component({
@@ -39,14 +39,14 @@ export class SharedVehicleAssignmentsComponent implements OnInit, OnDestroy {
   driversList: any[] = [];
   driversSubscription: Subscription;
 
-  assignmentForm: FormGroup;
+  assignmentForm: UntypedFormGroup;
 
   constructor(
     private routesService: RoutesService,
     private vehiclesService: VehiclesService,
     private driversService: DriversService,
     private programService: ProgramService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
     ) { }
 
   ngOnInit() {

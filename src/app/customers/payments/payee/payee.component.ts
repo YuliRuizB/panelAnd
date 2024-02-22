@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CustomersService } from '../../services/customers.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 
 export class PayeeComponent implements OnInit {
 
-  validateForm: FormGroup;
+  validateForm: UntypedFormGroup;
   checked = false;
   lastPurchase: any;
   loadingLastPurchase = true;
@@ -185,7 +185,7 @@ export class PayeeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private customersService: CustomersService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) { }
 
   ngOnInit() {

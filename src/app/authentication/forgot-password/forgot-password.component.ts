@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/shared/services/authentication.service';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,7 +9,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 })
 export class ForgotPasswordComponent implements OnInit {
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   submitForm(): void {
     // tslint:disable-next-line: forin
@@ -19,12 +19,12 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
     if (this.loginForm.valid) {
-      this.authService.forgotPassword(this.loginForm.get('userName').value);
+      this.authService.forgotPassword(this.loginForm.get('userName')?.value);
     }
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     public authService: AuthenticationService
     ) {
   }

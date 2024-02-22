@@ -4,7 +4,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 import { Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { IAssignment } from 'src/app/shared/interfaces/assignment.type';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
 import { UsersService } from 'src/app/shared/services/users.service';
 import * as _ from 'lodash';
 
@@ -26,7 +26,7 @@ export class AssignmentComponent implements OnInit, OnDestroy {
   vendorRoutesList: any[] = [];
   customersList: any[] = [];
   loading:boolean = true;
-  objectForm: FormGroup;
+  objectForm: UntypedFormGroup;
 
   assignmentsList: IAssignment[];
   isVisible: boolean = false;
@@ -36,7 +36,7 @@ export class AssignmentComponent implements OnInit, OnDestroy {
     private tableSvc: TableService,
     private usersService: UsersService,
     private authService: AuthenticationService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {
     this.createForm();
   }

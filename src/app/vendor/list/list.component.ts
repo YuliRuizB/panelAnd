@@ -3,7 +3,7 @@ import { NzModalService } from 'ng-zorro-antd';
 import { VendorService } from 'src/app/shared/services/vendor.service';
 import { map } from 'rxjs/operators';
 import { IVendor } from 'src/app/shared/interfaces/vendor.type';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-list',
@@ -15,9 +15,9 @@ export class ListComponent implements OnInit {
   view: string = 'cardView';
   newProject: boolean = false;
   vendorList: IVendor[] = [];
-  objectForm: FormGroup;
+  objectForm: UntypedFormGroup;
 
-  constructor(private modalService: NzModalService, private vendorService: VendorService, private fb: FormBuilder) { }
+  constructor(private modalService: NzModalService, private vendorService: VendorService, private fb: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.getSubscriptions();

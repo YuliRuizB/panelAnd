@@ -2,7 +2,7 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { RoutesService } from 'src/app/shared/services/routes.service';
 import { takeUntil, map } from 'rxjs/operators';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { IBaseProgram } from 'src/app/shared/interfaces/program.type';
 import { IStopPoint } from 'src/app/shared/interfaces/route.type';
 import * as _ from 'lodash';
@@ -29,13 +29,13 @@ export class SharedRouteProgramsComponent implements OnInit, OnDestroy {
   isCreateVisible: boolean = false;
   isEditMode: boolean = false;
   currentSelectedId: string;
-  programForm: FormGroup;
+  programForm: UntypedFormGroup;
   assigmentType: AssignmentType
 
   constructor(
     private routesService: RoutesService,
     private vendorsService: VendorService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) { 
     this.createForm();
     console.log(this.assigmentType);

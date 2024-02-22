@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NzModalRef } from 'ng-zorro-antd';
 
 @Component({
@@ -10,9 +10,9 @@ import { NzModalRef } from 'ng-zorro-antd';
 export class SharedStopPointsEditComponent implements OnInit, OnDestroy {
 
   @Input() stopPoint: any;
-  validateForm: FormGroup;
+  validateForm: UntypedFormGroup;
   
-  constructor(private fb: FormBuilder, private modal: NzModalRef) { }
+  constructor(private fb: UntypedFormBuilder, private modal: NzModalRef) { }
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {

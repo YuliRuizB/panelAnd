@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UploadFile } from 'ng-zorro-antd';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NzModalService } from 'ng-zorro-antd';
 import { NzMessageService } from 'ng-zorro-antd';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
 })
 export class EditComponent implements OnInit, OnDestroy {
 
-    changePWForm: FormGroup;
+    changePWForm: UntypedFormGroup;
     sub: Subscription;
     recordId: any;
     selectedIndex: number = 0;
@@ -24,7 +24,7 @@ export class EditComponent implements OnInit, OnDestroy {
     selectedCountry: any;
     selectedLanguage: any;
 
-    constructor(private fb: FormBuilder, private route: ActivatedRoute, private accountsService: AccountsService, private modalService: NzModalService, private message: NzMessageService) {
+    constructor(private fb: UntypedFormBuilder, private route: ActivatedRoute, private accountsService: AccountsService, private modalService: NzModalService, private message: NzMessageService) {
     }
 
     ngOnInit() {

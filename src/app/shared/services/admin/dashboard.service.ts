@@ -1,4 +1,3 @@
-import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireFunctions } from '@angular/fire/functions';

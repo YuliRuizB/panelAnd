@@ -1,33 +1,28 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core'
-import { ThemeConstantService } from '../../shared/services/theme-constant.service';
-import { environment } from 'src/environments/environment';
 import { map, take, takeUntil, tap } from 'rxjs/operators';
-import { startOfToday, endOfToday, format, fromUnixTime, startOfDay, yearsToMonths } from 'date-fns';
+import { startOfToday, endOfToday, format, fromUnixTime, startOfDay } from 'date-fns';
 import esLocale from 'date-fns/locale/es';
 import * as _ from 'lodash';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
-import { IActivityLog, ColumnDefs ,LiveProgramColumnDefs, LiveProgramColumnsDef, LiveAsignColumnDef } from 'src/app/logistics/classes';
+import am4themes_animated from "@amcharts/amcharts4/themes/animated"
+import { IActivityLog ,LiveProgramColumnDefs, LiveProgramColumnsDef } from 'src/app/logistics/classes';
 import { LogisticsService } from 'src/app/logistics/services.service';
-import { GeoJson, FeatureCollection } from 'src/app/logistics/map';
-import { range, Subject, Subscription } from 'rxjs';
+import { GeoJson } from 'src/app/logistics/map';
+import { Subject, Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { LiveService } from 'src/app/shared/services/live.service';
 import { ProgramService } from 'src/app/shared/services/program.service';
 import { RoutesService } from 'src/app/shared/services/routes.service';
-import { database } from 'firebase';
-import { CustomersModule } from 'src/app/customers/customers.module';
 import { UsersService } from 'src/app/shared/services/users.service';
-import { CellValueChangedEvent, ColDef, GridReadyEvent, ICellEditorParams, ValueParserParams } from 'ag-grid-community';
+import { ColDef, GridReadyEvent } from 'ag-grid-community';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import { AssignmentsService } from 'src/app/shared/services/assignments.service';
 import { DriversService } from 'src/app/shared/services/drivers.service';
 import { VehiclesService } from 'src/app/shared/services/vehicles.service';
-import { variable } from '@angular/compiler/src/output/output_ast';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
 
 am4core.useTheme(am4themes_animated);
@@ -113,7 +108,7 @@ export class ProgramComponent implements OnInit, OnDestroy {
   numAssingPro:string = "(0)";
   regSelected: string = "(0)";
   regFound:string;
-  signupForm: FormGroup;
+  signupForm: UntypedFormGroup;
 
   private chart: am4charts.XYChart;
   chartData: any;
@@ -167,7 +162,7 @@ export class ProgramComponent implements OnInit, OnDestroy {
     private vehiclesService: VehiclesService,
     private driversService: DriversService,
     private zone: NgZone,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private nzMessageService: NzMessageService,
   ) {
     this.markers = [] as GeoJson[];

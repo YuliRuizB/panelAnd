@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { NzModalService } from 'ng-zorro-antd';
 import { TermsComponent } from 'src/app/shared/template/terms/terms.component';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
@@ -10,7 +10,7 @@ import { AuthenticationService } from 'src/app/shared/services/authentication.se
 
 export class SignupComponent implements OnInit {
 
-  signUpForm: FormGroup;
+  signUpForm: UntypedFormGroup;
   isLoadingOne = false;
 
   submitForm(): void {
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
     Promise.resolve().then(() => this.signUpForm.controls.checkPassword.updateValueAndValidity());
   }
 
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
     } else if (control.value !== this.signUpForm.controls.password.value) {
@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
   }
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private modalService: NzModalService,
     public authService: AuthenticationService
   ) {

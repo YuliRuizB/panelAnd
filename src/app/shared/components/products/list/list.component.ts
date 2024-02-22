@@ -4,7 +4,7 @@ import { CustomersService } from 'src/app/customers/services/customers.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from 'src/app/shared/interfaces/product.type';
 import { NzModalService, NzMessageService } from 'ng-zorro-antd';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { map } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class SharedProductsListComponent implements OnInit, OnDestroy {
   view: string = 'cardView';
   sub: Subscription;
   productsList: Product[] = [];
-  validateForm: FormGroup;
+  validateForm: UntypedFormGroup;
 
   constructor(
     private usersService: CustomersService,
@@ -28,7 +28,7 @@ export class SharedProductsListComponent implements OnInit, OnDestroy {
     private modalService: NzModalService,
     public messageService: NzMessageService,
     private productsService: ProductsService,
-    private fb: FormBuilder) {
+    private fb: UntypedFormBuilder) {
 
   }
 

@@ -22,7 +22,7 @@ import { SharedVendorVehiclesComponent } from './components/vendor/vehicles/vehi
 import { SortablejsModule } from 'ngx-sortablejs';
 import { TableService } from './services/table.service';
 import { TreeComponent } from './components/users/charts/tree/tree.component';
-import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { SharedUsersUsageHistoryComponent } from './components/users/boardingPass/usage-history/usage-history.component';
 import { SharedRouteProgramsComponent } from './components/routes/programs/programs.component';
 import { SharedVendorAssignmentsComponent } from './components/vendor/assignments/assignments.component';
@@ -113,11 +113,7 @@ import { MessageCenterComponent } from './components/vendor/messageCenter/messag
         ThemeConstantService,
         NoticeService,
         TableService
-    ],
-    // entryComponents: [
-    //     SharedStopPointsEditComponent,
-    //     SharedStopPointsNewComponent
-    // ]
+    ]
 })
 
 export class SharedModule { }

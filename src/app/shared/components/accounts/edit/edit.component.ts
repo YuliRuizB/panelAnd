@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { AccountsService } from 'src/app/shared/services/accounts.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil, map, tap } from 'rxjs/operators';
 
@@ -12,14 +12,14 @@ import { takeUntil, map, tap } from 'rxjs/operators';
 export class SharedAccountEditComponent implements OnInit, OnDestroy {
 
   @Input('accountId') accountId: string;
-  objectForm: FormGroup;
+  objectForm: UntypedFormGroup;
   stopSubscription$: Subject<boolean> = new Subject();
   loading: boolean = true;
   record;
 
   constructor(
     private accountsService: AccountsService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) { }
 
   ngOnInit() {

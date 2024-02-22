@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NzModalService, NzMessageService } from 'ng-zorro-antd';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { RoutesService } from 'src/app/shared/services/routes.service';
 import { IRoute, IStopPoint } from '../../../interfaces/route.type';
@@ -20,13 +20,13 @@ export class SharedRoutesListComponent implements OnInit, OnDestroy {
   selectedIndex = 0;
   routesList: IRoute[] = [];
   stopPointsList: IStopPoint[] = [];
-  objectForm: FormGroup;
+  objectForm: UntypedFormGroup;
 
   constructor(
     private modalService: NzModalService,
     public messageService: NzMessageService,
     public routesService: RoutesService,
-    private fb: FormBuilder) {
+    private fb: UntypedFormBuilder) {
 
   }
 

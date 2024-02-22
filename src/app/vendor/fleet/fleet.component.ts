@@ -4,7 +4,7 @@ import { map, takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { IVehicle, columnDefs } from 'src/app/shared/interfaces/vehicle.type';
 import * as _ from 'lodash';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { Router } from '@angular/router';
 
@@ -24,12 +24,12 @@ export class FleetComponent implements OnInit, OnDestroy {
   isVisible: boolean = false;
   isOkLoading: boolean = false;
   columnDefs = columnDefs;
-  vehicleForm: FormGroup;
+  vehicleForm: UntypedFormGroup;
   user: any;
 
   popupParent: any;
 
-  constructor(private devicesService: DevicesService, private fb: FormBuilder, private authService: AuthenticationService, private router: Router) {
+  constructor(private devicesService: DevicesService, private fb: UntypedFormBuilder, private authService: AuthenticationService, private router: Router) {
     this.popupParent = document.querySelector('body');
   }
 

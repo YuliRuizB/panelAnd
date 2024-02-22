@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import * as _ from 'lodash';
 import { CustomersService } from 'src/app/customers/services/customers.service';
 import { NzModalService } from 'ng-zorro-antd';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { map, switchMap, take, takeUntil, tap } from 'rxjs/operators';
 import { Subscription, Subject } from 'rxjs';
 import { ProductsService } from 'src/app/shared/services/products.service';
@@ -126,8 +126,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   isModalCredentialVisible = false;
   isConfirmLoading = false;
 
-  validateForm: FormGroup;
-  credentialForm: FormGroup;
+  validateForm: UntypedFormGroup;
+  credentialForm: UntypedFormGroup;
   checked = false;
   routes: any = [];
   products: any = [];
@@ -169,7 +169,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private customersService: CustomersService,
     public modalService: NzModalService,
     private productsService: ProductsService,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dashboardService: DashboardService
   ) { }
 

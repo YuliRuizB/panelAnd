@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
 import { RoutesService } from 'src/app/shared/services/routes.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { AccountsService } from 'src/app/shared/services/accounts.service';
 
 @Component({
@@ -19,13 +19,13 @@ export class RouteEditComponent implements OnInit, OnDestroy {
   accountId: any;
   routeId: any;
   routeElement: any = {};
-  objectForm: FormGroup;
+  objectForm: UntypedFormGroup;
 
   constructor(
     private route: ActivatedRoute,
     private accountsService: AccountsService,
     private routesService: RoutesService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
     ) { }
 
   ngOnInit() {

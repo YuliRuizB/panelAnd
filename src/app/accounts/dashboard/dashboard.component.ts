@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { SummarizeService } from 'src/app/shared/services/summarize.service';
 import { Subscription } from 'rxjs';
 import { NzMessageService, NzModalService } from 'ng-zorro-antd';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   isVisible = false;
   isDeleteVisible = false;
   isOkLoading = false;
-  validateForm: FormGroup;
+  validateForm: UntypedFormGroup;
 
   constructor(
     private accountsService: AccountsService, 
@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private summarizedService: SummarizeService,
     private message: NzMessageService,
     public modalService: NzModalService,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
     ) { }
 
   ngOnInit() {

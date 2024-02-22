@@ -17,7 +17,7 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
 import { NgxCsvParserModule } from 'ngx-csv-parser';
 
 //QRCode
-import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 import { NgChartjsModule } from 'ng-chartjs';
 import { ThemeConstantService } from './shared/services/theme-constant.service';

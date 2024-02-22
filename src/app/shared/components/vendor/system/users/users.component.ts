@@ -12,7 +12,7 @@ import { NgxCsvParser } from 'ngx-csv-parser';
 import { NgxCSVParserError } from 'ngx-csv-parser';
 import { map } from 'rxjs/operators';
 
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-shared-vendor-users-list',
@@ -44,14 +44,14 @@ export class SharedVendorUsersListComponent implements OnInit, OnDestroy {
   header = true;
   isSavingUsers: boolean = false;
   isDone: boolean = false;
-  validateForm: FormGroup;
+  validateForm: UntypedFormGroup;
 
   constructor(
     private usersService: CustomersService,
     private afs: AngularFirestore,
     private msg: NzMessageService,
     private ngxCsvParser: NgxCsvParser,
-    private fb: FormBuilder
+    private fb: UntypedFormBuilder
   ) {
     this.popupParent = document.querySelector("body");
   }
@@ -96,7 +96,7 @@ export class SharedVendorUsersListComponent implements OnInit, OnDestroy {
     Promise.resolve().then(() => this.validateForm.controls.checkPassword.updateValueAndValidity());
   }
 
-  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+  confirmationValidator = (control: UntypedFormControl): { [s: string]: boolean } => {
     if (!control.value) {
       return { required: true };
     } else if (control.value !== this.validateForm.controls.password.value) {
